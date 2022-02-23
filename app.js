@@ -10,6 +10,7 @@ const app = express();
 const PORT = 3000;
 
 const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
@@ -32,6 +33,7 @@ app.use(
 );
 
 app.use("/", indexRouter);
+app.use("/users",usersRouter);
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
