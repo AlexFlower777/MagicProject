@@ -10,6 +10,7 @@ const hbs = require('hbs');
 const indexRouter = require('./routes/index');
 const cartRouter = require('./routes/cart');
 const usersRouter = require('./routes/users');
+
 const { addToLocals } = require('./middlewares/allMiddleware');
 
 const app = express();

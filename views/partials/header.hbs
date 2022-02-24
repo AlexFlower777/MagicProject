@@ -5,18 +5,22 @@
       <a class="navbar-brand" href="#">Magic: The Gathering</a>
     </div>
     <ul class="nav navbar-nav">
+       {{#if userName}}
       <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/signup">Sign Up</a>
+        <a class="nav-link text-white" href="/users/logout">Log Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Log In</a>
+        <a class="nav-link text-white" href="/users/profile/{{userId}}">Hello, {{userName}}</a>
       </li>
-      {{!-- {{#if userId}} --}}
+      {{else}}
       <li class="nav-item">
-        <a class="nav-link text-white" href="/logout">Log Out</a>
+        <a class="nav-link text-white" href="/users/signup">Sign Up</a>
       </li>
-      {{!-- {{/if}} --}}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/users/login">Log In</a>
+      </li>
+      {{/if}}
     </ul>
     {{!-- {{#if userId}} --}}
     <a id="cart" class="btn btn-danger nav-link text-white" type="button" href="/cart">Cart</a>
