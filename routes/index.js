@@ -11,4 +11,13 @@ router.get('/test', async (req, res) => {
   res.render('index', { allCards });
 });
 
+router.get("/new", (req, res) => {
+  res.render("create");
+});
+
+router.post("/newImg", async (req, res) => {
+  console.log(req.body);
+  
+});
+
 module.exports = router;
