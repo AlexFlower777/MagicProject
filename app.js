@@ -1,27 +1,35 @@
-const express = require('express');
-const logger = require('morgan');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
-const hbs = require('hbs');
 
+// requiring node modules
+const express = require("express");
+const logger = require("morgan");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
+const hbs = require("hbs");
+// requiring routers
+const indexRouter = require("./routes/index");
+const cartRouter = require("./routes/cart");
+const usersRouter = require('./routes/users');
 const { addToLocals } = require('./middlewares/allMiddleware');
 
 const app = express();
 const PORT = 3000;
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
-app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+// hbs settings
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
+// register partials
+hbs.registerPartials(path.join(__dirname, "views", "partials"));
+
+// middlewares
+app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-hbs.registerPartials(path.join(__dirname, 'views', 'partials'));
+
 
 app.use(
   session({
@@ -34,10 +42,12 @@ app.use(
   }),
 );
 
+// routes middlewares
 app.use(addToLocals);
-
-app.use('/', indexRouter);
+app.use("/", indexRouter);
 app.use('/users', usersRouter);
+app.use(`/users/${this.userId}`, cartRouter);
+
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

@@ -1,26 +1,25 @@
-<div>Header</div>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark text-white">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MTG</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {{#if userName}}
-          <li class="pipe-separate t-light-blue left"><a href="/">home</a></li>
-          <li><a href="/users/logout">logout</a></li>
-          <li><a href="/users/profile/{{userId}}">{{userName}}</a></li>
-          {{else}}
-          <li class="pipe-separate t-light-blue left"><a href="/">home</a></li>
-          <li class="pipe-separate t-light-blue left"><a href="/users/login">login</a></li>
-          <li class="pipe-separate t-light-blue left"><a href="/users/signup">sign up</a></li>
-          {{/if}}
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Magic: The Gathering</a>
     </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/signup">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/login">Log In</a>
+      </li>
+      {{!-- {{#if userId}} --}}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/logout">Log Out</a>
+      </li>
+      {{!-- {{/if}} --}}
+    </ul>
+    {{!-- {{#if userId}} --}}
+    <button class="btn btn-danger navbar-btn" href="/users/:id/cart">Cart</button>
+    {{!-- {{/if}} --}}
   </div>
 </nav>

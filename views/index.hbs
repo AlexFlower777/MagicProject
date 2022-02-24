@@ -1,2 +1,20 @@
-{{> header}}
-Index
+{{>header}}
+
+<main>
+<div class="container">
+
+{{#each allCards}}
+<div class="card">
+  <img src="{{image}}" class="card-img-top" alt="Ангел Ограничений">
+  <div class="card-body">
+    <h5 class="card-title">Название: {{title}}</h5>
+      <p class="card-text">Состояние: Идеальное</p>
+      <p class="card-text">Цена: {{price}} ₽</p>
+      <p class="card-text">Город: Москва</p>
+    <a href="#" class="btn btn-primary">Купить</a>
+  </div>
+</div>
+{{/each}}
+
+</div>
+</main>
