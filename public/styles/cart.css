@@ -1,0 +1,151 @@
+/* body{
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #E3F0FF, #FAFCFF);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } */
+.Cart-Container {
+  width: 70%;
+  height: 85%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0px 25px 40px #1687d933;
+}
+
+/* Hedear */
+.Header {
+  margin: auto;
+  width: 90%;
+  height: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Heading {
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 700;
+  color: #2f3841;
+}
+.Action {
+  font-size: 14px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #e44c4c;
+  cursor: pointer;
+  border-bottom: 1px solid #e44c4c;
+}
+
+/* End header */
+
+/*  Adding a product details */
+.Cart-Items {
+  margin: auto;
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.image-box {
+  width: 15%;
+  text-align: center;
+}
+.about {
+  height: 100%;
+}
+.title {
+  padding-top: 5px;
+  line-height: 10px;
+  font-size: 32px;
+  font-family: ‘Open Sans’;
+  font-weight: 800;
+  color: #202020;
+}
+.condition {
+  line-height: 10px;
+  font-size: 18px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #909090;
+}
+.seller {
+  line-height: 10px;
+  font-size: 18px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #909090;
+}
+.city {
+  line-height: 10px;
+  font-size: 18px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #909090;
+}
+
+/* End Adding a product details */
+
+/* counter */
+.counter {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* .btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+  cursor: pointer;
+} */
+.count {
+  font-size: 20px;
+  font-family: ‘Open Sans’;
+  font-weight: 900;
+  color: #202020;
+}
+
+/* end counter */
+
+/* Prices */
+.prices {
+  height: 100%;
+  text-align: right;
+}
+.amount {
+  padding-top: 20px;
+  font-size: 26px;
+  font-family: ‘Open Sans’;
+  font-weight: 800;
+  color: #202020;
+}
+.order {
+  padding-top: 5px;
+  font-size: 14px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #1687d9;
+  cursor: pointer;
+}
+.remove {
+  padding-top: 5px;
+  font-size: 14px;
+  font-family: ‘Open Sans’;
+  font-weight: 600;
+  color: #e44c4c;
+  cursor: pointer;
+}
+
+/* end prices */
