@@ -1,16 +1,30 @@
 const router = require("express").Router();
+const { Card } = require("../db/models");
 
 router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/new", (req, res) => {
+router.get("/users/profile/:id/new", (req, res) => {
   res.render("create");
 });
 
 router.post("/newImg", async (req, res) => {
-  console.log(req.body);
-  
+  const { title, price, image, condition_id } = req.body;
+  // console.log(req.body);
+  const user_id = req.session.userId;
+  let result = await Card.create({ title, price, image, condition_id:+condition_id, user_id})
+  // let result = { title, price, image, condition_id:+condition_id, user_id }
+  // console.log(result);
+
 });
+
+
+router.get("/test", async (req, res) => {
+  const allCards = await Card.findAll({ raw: true });
+  console.log(allCards);
+  res.render("index", { allCards });
+});
+
 
 module.exports = router;

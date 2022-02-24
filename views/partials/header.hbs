@@ -1,1 +1,25 @@
-<div>Header</div>
+
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark text-white">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Magic: The Gathering</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/users/signup">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/users/login">Log In</a>
+      </li>
+      {{!-- {{#if userId}} --}}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/users/logout">Log Out</a>
+      </li>
+      {{!-- {{/if}} --}}
+    </ul>
+    {{!-- {{#if userId}} --}}
+    <button class="btn btn-danger navbar-btn" href="/users/:id/cart">Cart</button>
+    {{!-- {{/if}} --}}
+  </div>
+</nav>

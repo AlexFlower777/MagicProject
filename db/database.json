@@ -2,8 +2,10 @@
   "development": {
     "username": "admin",
     "password": "12345",
-    "database": "Magic",
+    "database": "Magic_Ze_gezering_database",
+
     "host": "127.0.0.1",
+    "port": "5432",
     "dialect": "postgres"
   },
   "test": {
