@@ -1,0 +1,29 @@
+body {
+  background: linear-gradient(90deg, #aea4e3, #d3ffe8);
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card {
+  width: 14rem;
+  padding: 10px;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.card h5 {
+  margin-bottom: 20px;
+}
+
+.card p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.btn {
+  margin-top: 20px;
+}
