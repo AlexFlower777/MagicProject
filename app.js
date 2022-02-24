@@ -43,7 +43,7 @@ app.use(
 app.use(addToLocals);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use(`/users/${this.userId}`, cartRouter);
+app.use('/cart', cartRouter);
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
