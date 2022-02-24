@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "admin",
+    "username": "admin1",
     "password": "12345",
-    "database": "Magic_Ze_gezering_database",
+    "database": "Magic",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
