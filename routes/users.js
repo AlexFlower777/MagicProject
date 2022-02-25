@@ -37,7 +37,7 @@ router
   .get((req, res) => res.render('login'))
   .post(async (req, res) => {
     const { email, password } = req.body;
-    console.log(22222, email, password);
+    // console.log(22222, email, password);
 
     try {
       const user = await User.findOne({ where: { email } });
@@ -68,15 +68,22 @@ router
 router.get('/profile/:id', checkUser, checkProtection, async (req, res) => {
   const userId = Number(req.params.id);
   const allCards = await Card.findAll({ where: { user_id: userId }, raw: true });
-  // ({ where: { user_id: userId } });
-  console.log(22222222, req.params.id, typeof userId);
-  console.log(3333, allCards);
-  console.log(userId)
+  console.log(allCards);
+  const cardId =
   res.render('profile', { allCards});
 });
 
+router.delete('/profile/:id', async (req, res) => {
+  const { postId } = req.params;
+  try {
+    await Post.destroy({ where: { id: +postId } });
+    res.sendStatus(200);
+  } catch (e) {
+    res.sendStatus(418);
+  }
+});
+
 router.get('/logout', (req, res) => {
-  console.log(99999);
   req.session.destroy();
   res.clearCookie('userCookie');
   res.redirect('/');

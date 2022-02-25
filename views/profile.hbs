@@ -1,36 +1,24 @@
-<div class="container"><button type="button" class="btn btn-success text-center mt-5" href="/users/profile/{{id}}/new">Create new card</button>
-</div>
+{{!-- <div class="container"><button type="button" class="btn btn-success text-center mt-5" href="/users/profile/{{userId}}/new">Create new card</button>
 
+</div> --}}
+<div class="container">
+<a id="cart" style="width:150px" class="container btn btn-danger nav-link text-white" type="button" href="/users/profile/{{userId}}/new">Create new card</a>
+</div>
 
 <div class="container d-flex flex-wrap mt-5">
   <h2>My cards</h2>
-<div class="container mt-5">
 </div>
+<div id="profileContainer" class="container mt-5">
 {{#each allCards}}
-<div class="card">
+<div data-id={{id}} class="card">
   <img src="{{image}}" class="card-img-top" alt="карта на продажу">
   <div class="card-body">
-    <h5 class="card-title">Название: {{title}}</h5>
+    <h5  class="card-title">Название: {{title}}</h5>
       <p class="card-text">Состояние: {{condition}}</p>
       <p class="card-text">Цена: {{price}} ₽</p>
-    <a href="#" class="btn btn-secondary">Delete</a>
-  <a href="#" class="btn btn-secondary">Edit</a>
+    <a id="delete-button" href="#" class="btn btn-secondary">Delete</a>
+
   </div>
 </div>
-{{!-- <div class="card-deck form-row text-center" >
-  <div class="card" style="width: 18rem;">
-  <div class="card-body" class="btn-group">
-  <h5 class="card-title" name="title">{{title}}</h5>
-  <h5 class="card-title" name="price">{{price}}</h5>
-  <h5 class="card-title" src="{{image}}" name="image"></h5>
-  <h5 class="card-title" name="condition">{{condition}}</h5>
-
-  <a href="#" class="btn btn-secondary">Delete</a>
-  <a href="#" class="btn btn-secondary">Edit</a>
-
-</div>
-</div>
-</div> --}}
 {{/each}}
 </div>
-<h1>{{entry.title}}</h1>
