@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
   // });
 
   const allCities = await City.findAll({ raw: true });
-  console.log(allCards[0]);
   // console.log(allCities);
   res.render("index", { allCards, allCities });
 });
@@ -52,11 +51,15 @@ router.route("/:id").get(async (req, res) => {
 //   res.render("index", { allCards });
 //
 
-router.get("/users/profile/:id/new", (req, res) => {
-  res.render("create");
+router.get("/users/profile/:id/new", async (req, res) => {
+  const allCities = await City.findAll({ raw: true });
+  console.log(allCities);
+  res.render("create", { allCities });
 });
+
 router.post("/newImg", async (req, res) => {
   const { title, price, image, condition } = req.body;
+  const allCities = await City.findAll({ raw: true });
   // const condition = await Condition.create({ condition: city });
   const user_id = req.session.userId;
   const result = await Card.create({
@@ -66,7 +69,7 @@ router.post("/newImg", async (req, res) => {
     condition_id: +condition,
     user_id,
   });
-  res.render("profile", { title, price, image, condition });
+  res.render("profile", { title, price, image, condition, allCities });
 });
 
 router.post("/newImg", async (req, res) => {
