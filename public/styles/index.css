@@ -24,6 +24,7 @@ body {
 
 .btn {
   margin-top: 20px;
+  height: 45px;
 }
 
 .btn-primary:hover {
