@@ -20,4 +20,5 @@ const checkProtection = async (req, res, next) => {
   }
 };
 
+
 module.exports = { addToLocals, checkUser, checkProtection };
