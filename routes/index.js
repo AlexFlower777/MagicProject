@@ -11,12 +11,8 @@ router.get("/users/profile/:id/new", (req, res) => {
 
 router.post("/newImg", async (req, res) => {
   const { title, price, image, condition_id } = req.body;
-  // console.log(req.body);
   const user_id = req.session.userId;
-  let result = await Card.create({ title, price, image, condition_id:+condition_id, user_id})
-  // let result = { title, price, image, condition_id:+condition_id, user_id }
-  // console.log(result);
-
+  let result = await Card.create({ title, price, image, condition_id: +condition_id, user_id })
 });
 
 
