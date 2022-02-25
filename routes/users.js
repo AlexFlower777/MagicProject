@@ -67,10 +67,12 @@ router
 
 router.get('/profile/:id', checkUser, checkProtection, async (req, res) => {
   const userId = Number(req.params.id);
-  const allCards = await Card.findAll({ where: { user_id: userId } });
+  const allCards = await Card.findAll({ where: { user_id: userId }, raw: true });
+  // ({ where: { user_id: userId } });
   console.log(22222222, req.params.id, typeof userId);
   console.log(3333, allCards);
-  res.render('profile');
+  console.log(userId)
+  res.render('profile', { allCards});
 });
 
 router.get('/logout', (req, res) => {
