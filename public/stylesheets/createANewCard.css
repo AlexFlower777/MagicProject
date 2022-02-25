@@ -18,11 +18,14 @@
   flex-direction: row;
   margin-top: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 12px 16px 0 rgb(0 0 0 / 24%), 0 17px 50px 0 rgb(0 0 0 / 19%);
 }
 .yourCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+    height: 500px;
+    justify-content: space-evenly;
 }
 .data1 {
   height: 300px;
@@ -31,6 +34,12 @@
   justify-content: space-around;
 }
 #href {
-  height: 21px;
-  width: 278px;
+  height: 26px;
+  width: 341px;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
