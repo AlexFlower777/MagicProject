@@ -1,30 +1,7 @@
 <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark text-white">
   <div class="container-fluid me-4 mt-2 mb-2">
     <div class="navbar-header">
-
-      <a class="navbar-brand" href="#">Magic: The Gathering</a>
-    </div>
-
-    <div class="dropdown mt-0">
-      <button
-        class="btn btn-secondary dropdown-toggle mt-0"
-        type="button"
-        id="dropdownMenuButtonCity"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Выберите Город
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-dark"
-        aria-labelledby="dropdownMenuButton2"
-      >
-
-        {{#each allCities}}
-          <li><a class="dropdown-item active" href="/{{id}}">{{name}}</a></li>
-        {{/each}}
-
-      </ul>
+      <a class="navbar-brand" href="/">Magic: The Gathering</a>
     </div>
 
     <ul class="nav navbar-nav">
@@ -44,14 +21,6 @@
       </li>
       {{/if}}
     </ul>
-    
-    {{!-- {{#if userId}} --}}
-    <a
-      id="cart"
-      class="btn btn-danger nav-link text-white mt-0"
-      type="button"
-      href="/cart"
-    >Cart</a>
 
     <div class="dropdown">
       <button

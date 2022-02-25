@@ -5,14 +5,12 @@ body {
 .container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
 }
 
 .card {
   width: 14rem;
   padding: 10px;
   margin: 10px;
-  font-size: 14px;
 }
 
 .card h5 {
@@ -26,4 +24,8 @@ body {
 
 .btn {
   margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: black;
 }

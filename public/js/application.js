@@ -31,12 +31,12 @@ buyCard?.addEventListener('click', async (e) => {
   console.log(e.target.dataset);
   console.log(id);
   if (e.target.dataset.id) {
-    const cart = JSON.parse(localStorage.cart) || []; // array of id (cards)
+    const cartParsed = JSON.parse(localStorage.cart) || []; // array of id (cards)
     console.log(cart);
     // check if card was already added
     if (!cart.includes(id)) {
       cart.push(id);
-      localStorage.cart = JSON.stringify(cart);
+      localStorage.cartParsed = JSON.stringify(cartParsed);
     }
   }
   console.log(localStorage.cart);

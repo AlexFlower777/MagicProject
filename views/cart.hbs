@@ -1,8 +1,8 @@
 <body>
- <div class="Cart-Container">
+ <div class="Cart-Container" href="/cart">
    <div class="Header">
-    <h3 class="Heading">Shopping Cart</h3>
-    <h5 class="Action">Remove all</h5>
+    <h3 class="Heading">Корзина</h3>
+    <h5 class="Action">Удалить всё</h5>
     </div>
     {{#each card}}
     <div class="Cart-Items">
@@ -16,8 +16,8 @@
     </div>
     <div class="prices">
       <div class="amount">{{price}}</div>
-      <div class="order"><u>Order</u></div>
-      <div class="remove"><u>Remove</u></div>
+      <div class="order"><u>Заказать</u></div>
+      <div class="remove"><u>Удалить</u></div>
     </div>
     {{/each}}
   </div>
