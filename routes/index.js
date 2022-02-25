@@ -18,7 +18,6 @@ router.get("/", async (req, res) => {
   // });
 
   const allCities = await City.findAll({ raw: true });
-  console.log(allCards[0]);
   // console.log(allCities);
   res.render("index", { allCards, allCities });
 });
@@ -55,14 +54,16 @@ router.route("/:id").get(async (req, res) => {
 //   res.render("index", { allCards });
 //
 
-router.get("/users/profile/:id/new", (req, res) => {
-  res.render("create");
+router.get("/users/profile/:id/new", async (req, res) => {
+  const allCities = await City.findAll({ raw: true });
+  console.log(allCities);
+  res.render("create", { allCities });
 });
 
-router.post('/newImg', checkProtection, async (req, res) => {
-  const {
-    title, price, image, condition,
-  } = req.body;
+
+router.post("/newImg", async (req, res) => {
+  const { title, price, image, condition } = req.body;
+  const allCities = await City.findAll({ raw: true });
 
   // const condition = await Condition.create({ condition: city });
   const userId = req.session.userId;
@@ -74,7 +75,8 @@ router.post('/newImg', checkProtection, async (req, res) => {
     condition_id: +condition,
     user_id: userId,
   });
-  res.render("profile", { title, price, image, condition, userId });
+
+  res.render("profile", { title, price, image, condition, allCities });
 
 });
 
