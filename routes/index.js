@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Card } = require('../db/models');
+const { checkProtection } = require('../middlewares/allMiddleware');
 
 router.get('/', (req, res) => {
   res.render('index');
 });
 
-router.get("/users/profile/:id/new", (req, res) => {
+router.get("/users/profile/:id/new", checkProtection, (req, res) => {
   res.render("create");
 });
 
@@ -28,7 +29,7 @@ router.get("/new", (req, res) => {
 
 router.post("/newImg", async (req, res) => {
   console.log(req.body);
-  
+
 });
 
 module.exports = router;
