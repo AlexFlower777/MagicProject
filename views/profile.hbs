@@ -1,3 +1,26 @@
-HELLO! name: {{user.name}}, email: {{user.email}}
-<h2>You successfully logged in</h2>
-{{!-- <h2>Your city: {{userCity}}</h2> --}}
+<div class="container"><button type="button" class="btn btn-success text-center mt-5" href="/users/profile/{{id}}/new">Create new card</button>
+</div>
+
+
+<div class="container d-flex flex-wrap mt-5">
+  <h2>My cards</h2>
+<div class="container mt-5">
+</div>
+{{#each allCards}}
+<div class="card-deck form-row text-center" >
+  <div class="card" style="width: 18rem;">
+  <div class="card-body" class="btn-group">
+  <h5 class="card-title" name="title">{{title}}</h5>
+  <h5 class="card-title" name="price">{{price}}</h5>
+  <h5 class="card-title" src="{{image}}" name="image"></h5>
+  <h5 class="card-title" name="condition">{{condition}}</h5>
+
+  <a href="#" class="btn btn-secondary">Delete</a>
+  <a href="#" class="btn btn-secondary">Edit</a>
+
+</div>
+</div>
+</div>
+{{/each}}
+</div>
+<h1>{{entry.title}}</h1>

@@ -1,22 +1,50 @@
-
-<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark text-white">
+<nav
+  class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark text-white"
+>
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Magic: The Gathering</a>
     </div>
+
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButtonCity"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Выберите Город
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-dark"
+        aria-labelledby="dropdownMenuButton2"
+      >
+
+        {{#each allCities}}
+          <li><a class="dropdown-item active" href="/{{id}}">{{name}}</a></li>
+        {{/each}}
+
+      </ul>
+    </div>
+
     <ul class="nav navbar-nav">
+       {{#if userName}}
       <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/signup">Sign Up</a>
+        <a class="nav-link text-white" href="/users/logout">Log Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/login">Log In</a>
+        <a class="nav-link text-white" href="/users/profile/{{userId}}">Hello, {{userName}}</a>
       </li>
-      {{!-- {{#if userId}} --}}
+      {{else}}
       <li class="nav-item">
-        <a class="nav-link text-white" href="/logout">Log Out</a>
+        <a class="nav-link text-white" href="/users/signup">Sign Up</a>
       </li>
-      {{!-- {{/if}} --}}
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/users/login">Log In</a>
+      </li>
+      {{/if}}
     </ul>
     {{!-- {{#if userId}} --}}
     <a id="cart" class="btn btn-danger nav-link text-white mt-0" type="button" href="/cart">Cart
