@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const { User, City } = require('../db/models/index');
+const { Card, User, City } = require('../db/models');
 const { checkUser, checkProtection } = require('../middlewares/allMiddleware');
 
 const router = express.Router();
@@ -66,12 +66,17 @@ router
   });
 
 router.get('/profile/:id', checkUser, checkProtection, async (req, res) => {
-  const user = await User.findByPk(req.params.id);
-  const { city } = req.params;
-  res.render('profile', { user, city });
+  const userId = Number(req.params.id);
+  const allCards = await Card.findAll({ where: { user_id: userId }, raw: true });
+  // ({ where: { user_id: userId } });
+  console.log(22222222, req.params.id, typeof userId);
+  console.log(3333, allCards);
+  console.log(userId)
+  res.render('profile', { allCards});
 });
-// checkUser, checkProtection,
+
 router.get('/logout', (req, res) => {
+  console.log(99999);
   req.session.destroy();
   res.clearCookie('userCookie');
   res.redirect('/');

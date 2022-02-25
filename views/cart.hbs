@@ -1,32 +1,25 @@
 <body>
- <div class=”Cart-Container”>
-   <div class=”Header”>
-    <h3 class=”Heading”>Shopping Cart</h3>
-    <h5 class=”Action”>Remove all</h5>
+ <div class="Cart-Container">
+   <div class="Header">
+    <h3 class="Heading">Shopping Cart</h3>
+    <h5 class="Action">Remove all</h5>
     </div>
-    {{#each this.card}}
-    <div class=”Cart-Items”>
-      <div class=”image-box”>
-      <img src=”images/apple.png” style={{ height=”120px” }} />
+    {{#each card}}
+    <div class="Cart-Items">
+      <div class="image-box">
     </div>
-    <div class=”about”>
-      <h1 class=”title”>{{this.title}}</h1>
-      <h2 class=”condition”>{{this.condition}}</h2>
-      <h2 class=”city”>{{this.city}}</h2>
-      <h2 class=”seller”>{{this.user}}</h2>
+    <div class="about">
+      <h1 class="title">{{title}}</h1>
+      <h2 class="condition">{{condition}}</h2>
+      <h2 class="city">{{city}}</h2>
+      <h2 class="seller">{{user}}</h2>
     </div>
-    <div class=”counter”>
-      <div class=”btn”>+</div>
-      <div class=”count”>2</div>
-      <div class=”btn”>-</div>
-    </div>
-    <div class=”prices”>
-      <div class=”amount”>{{this.price}}</div>
-      <div class=”order”><u>Order</u></div>
-      <div class=”remove”><u>Remove</u></div>
+    <div class="prices">
+      <div class="amount">{{price}}</div>
+      <div class="order"><u>Order</u></div>
+      <div class="remove"><u>Remove</u></div>
     </div>
     {{/each}}
   </div>
  </div>
- 
 </body>
