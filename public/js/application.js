@@ -1,3 +1,6 @@
+
+const buyCard = document.querySelector('.container_buy');
+
 // const cityInput = document.querySelector("#cityInput");
 // console.log(cityInput);
 
@@ -14,7 +17,6 @@
 //   console.log(answer);
 // });
 
-const buyCard = document.querySelector('.container');
 console.log(buyCard);
 const cart = document.querySelector('#cart');
 console.log(cart);
@@ -61,7 +63,7 @@ const { formBlock } = document.forms;
 
 const indexUrl = '/newImg'
 
-formBlock.addEventListener('submit', async (e) => {
+formBlock?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const tweetInputs = Object.fromEntries(new FormData(formBlock));
   const response = await fetch(indexUrl, {

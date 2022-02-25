@@ -1,6 +1,9 @@
+
 const router = require("express").Router();
 const { Card, User, City, Сondition } = require("../db/models");
+const { checkUser, checkProtection } = require('../middlewares/allMiddleware');
 const { Op } = require("sequelize");
+
 
 // Выведение всех карточек на главный экран
 router.get("/", async (req, res) => {
@@ -57,19 +60,24 @@ router.get("/users/profile/:id/new", async (req, res) => {
   res.render("create", { allCities });
 });
 
+
 router.post("/newImg", async (req, res) => {
   const { title, price, image, condition } = req.body;
   const allCities = await City.findAll({ raw: true });
+
   // const condition = await Condition.create({ condition: city });
-  const user_id = req.session.userId;
+  const userId = req.session.userId;
   const result = await Card.create({
+
     title,
     price,
     image,
     condition_id: +condition,
-    user_id,
+    user_id: userId,
   });
+
   res.render("profile", { title, price, image, condition, allCities });
+
 });
 
 router.post("/newImg", async (req, res) => {
