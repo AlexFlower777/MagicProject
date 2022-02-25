@@ -1,4 +1,4 @@
-<div class="container mt-3 mx-auto" style="heigth: 100px; width=200px;">
+<div class="container mt-3 mx-auto">
   <h2>Создай новый аккаунт</h2>
   <h2>{{message}}</h2>
   <h3>{{message1}}</h3>
@@ -7,23 +7,46 @@
 </div>
 
 <div class="container mt-3 max-w-200 center wrap-float">
-<form method="post" action="/users/signup">
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
-    <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-  </div>
-   <div class="mb-3">
-    <label for="exampleInputName1" class="form-label">Имя</label>
-    <input name="name" type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputCity1" class="form-label">Город</label>
-    <input name="city" type="text" class="form-control" id="exampleCity1" aria-describedby="nameHelp">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Пароль</label>
-    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-  </div>
+  <form method="post" action="/users/signup">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+      <input
+        name="email"
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputName1" class="form-label">Имя</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        id="exampleInputName1"
+        aria-describedby="nameHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputCity1" class="form-label">Город</label>
+      <input
+        name="city"
+        type="text"
+        class="form-control"
+        id="exampleCity1"
+        aria-describedby="nameHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Пароль</label>
+      <input
+        name="password"
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
     <button type="submit" class="btn btn-primary">Регистрация</button>
-</form>
+  </form>
 </div>

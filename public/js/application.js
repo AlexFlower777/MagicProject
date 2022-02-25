@@ -16,9 +16,7 @@ const buyCard = document.querySelector(".container_buy");
 //   console.log(answer);
 // });
 
-console.log(buyCard);
-const cart = document.querySelector("#cart");
-console.log(cart);
+// const cart = document.querySelector("#cart");
 
 buyCard?.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -43,20 +41,20 @@ buyCard?.addEventListener("click", async (e) => {
   console.log(localStorage.cart);
 });
 
-cart?.addEventListener("click", async (e) => {
-  e.preventDefault();
-  let cards = localStorage.cart;
-  console.log(cards);
-  let response = await fetch("/cart", {
-    model: {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ cards }),
-    },
-  });
-});
+// cart?.addEventListener("click", async (e) => {
+//   e.preventDefault();
+//   let cards = localStorage.cart;
+//   console.log(cards);
+//   let response = await fetch("/cart", {
+//     model: {
+//       method: "GET",
+//       headers: {
+//         "content-type": "application/json",
+//       },
+//       body: JSON.stringify({ cards }),
+//     },
+//   });
+// });
 
 const { formBlock } = document.forms;
 

@@ -19,7 +19,7 @@ module.exports = {
           image:
             "http://media.wizards.com/2017/dw466ytu5_akh/ru_mXn7f6ddvK.png",
           price: 15,
-          condition_id: 2,
+          condition_id: 1,
           user_id: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -39,7 +39,7 @@ module.exports = {
           image:
             "http://media.wizards.com/2017/dw466ytu5_akh/ru_TL4aUcZYQe.png",
           price: 100,
-          condition_id: 2,
+          condition_id: 4,
           user_id: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -59,7 +59,7 @@ module.exports = {
           image:
             "http://media.wizards.com/2017/dw466ytu5_akh/ru_PjSRw5MTfR.png",
           price: 100,
-          condition_id: 2,
+          condition_id: 1,
           user_id: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -70,7 +70,7 @@ module.exports = {
             "http://media.wizards.com/2017/dw466ytu5_akh/ru_aWl1bTHboJ.png",
           price: 100,
           condition_id: 2,
-          user_id: 1,
+          user_id: 5,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

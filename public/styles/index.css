@@ -24,6 +24,15 @@ body {
   padding: 0px;
 }
 
+.btn_header {
+  height: 45px;
+  margin-top: 20px;
+}
+
 .btn {
   margin-top: 20px;
+}
+
+.Cart-Container {
+  /* justify-content: center; */
 }
