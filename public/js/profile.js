@@ -1,14 +1,17 @@
-const profileContainer = document.querySelector('#profileContainer');
-profileContainer?.addEventListener('click', async (e) => {
-  if (e.target.id === 'delete-button') {
-    const profileCard = e.target.closest('[data-id]');
-    const cardId = profileCard.dataset.id;
-    const response = await fetch(`/post/${cardId}`, {
-      method: 'DELETE',
-      });
-    console.log(response);
+const profileContainer = document.querySelector("#profileContainer");
+
+profileContainer?.addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  if (e.target.dataset.delete === "delete") {
+    const card = e.target.closest(".card");
+    const cardId = e.target.dataset.id;
+
+    const response = await fetch(`/users/profile/${cardId}`, {
+      method: "DELETE",
+    });
     if (response.ok) {
-      cardId.remove();
+      card.remove();
     }
   }
 });

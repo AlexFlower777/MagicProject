@@ -1,5 +1,4 @@
-
-const buyCard = document.querySelector('.container_buy');
+const buyCard = document.querySelector(".container_buy");
 
 // const cityInput = document.querySelector("#cityInput");
 // console.log(cityInput);
@@ -18,14 +17,14 @@ const buyCard = document.querySelector('.container_buy');
 // });
 
 console.log(buyCard);
-const cart = document.querySelector('#cart');
+const cart = document.querySelector("#cart");
 console.log(cart);
 
-buyCard?.addEventListener('click', async (e) => {
+buyCard?.addEventListener("click", async (e) => {
   e.preventDefault();
   if (!localStorage.cart) {
-    console.log('1212');
-    localStorage.setItem('cart', JSON.stringify([]));
+    console.log("1212");
+    localStorage.setItem("cart", JSON.stringify([]));
   }
   console.log(localStorage.cart);
   // check for clicking on buy btn
@@ -44,11 +43,11 @@ buyCard?.addEventListener('click', async (e) => {
   console.log(localStorage.cart);
 });
 
-cart?.addEventListener('click', async (e) => {
+cart?.addEventListener("click", async (e) => {
   e.preventDefault();
   let cards = localStorage.cart;
   console.log(cards);
-  let response = await fetch('/cart', {
+  let response = await fetch("/cart", {
     model: {
       method: "GET",
       headers: {
@@ -61,17 +60,24 @@ cart?.addEventListener('click', async (e) => {
 
 const { formBlock } = document.forms;
 
-const indexUrl = '/newImg'
+const indexUrl = "/newImg";
 
-formBlock?.addEventListener('submit', async (e) => {
+formBlock?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const tweetInputs = Object.fromEntries(new FormData(formBlock));
   const response = await fetch(indexUrl, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(tweetInputs),
-  })
-})
-
+  });
+  let answer = await response.json();
+  console.log(answer);
+  if (response.ok) {
+    window.location = `/users/profile/${answer}`;
+  } else {
+    console(response);
+    console.log("Not Ok");
+  }
+});

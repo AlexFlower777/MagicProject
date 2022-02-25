@@ -1,6 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const { Card, User, City } = require("../db/models");
+const { Card, User, City, Сondition } = require("../db/models");
 const { checkUser, checkProtection } = require("../middlewares/allMiddleware");
 
 const router = express.Router();
@@ -76,27 +76,28 @@ router
   });
 
 router.get("/profile/:id", checkUser, checkProtection, async (req, res) => {
-  const userId = Number(req.params.id);
+  const user_id = Number(req.params.id);
   const allCities = await City.findAll({ raw: true });
   const allCards = await Card.findAll({
-    where: { user_id: userId },
+    include: [{ model: User, include: { model: City } }, { model: Сondition }],
+    where: { user_id },
     raw: true,
   });
-  
+
   res.render("profile", { allCards, allCities });
 });
 
-router.delete('/profile/:id', async (req, res) => {
+router.delete("/profile/:postId", async (req, res) => {
   const { postId } = req.params;
   try {
-    await Post.destroy({ where: { id: +postId } });
+    await Card.destroy({ where: { id: +postId } });
     res.sendStatus(200);
   } catch (e) {
     res.sendStatus(418);
   }
 });
 
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   req.session.destroy();
   res.clearCookie("userCookie");
   res.redirect("/");
