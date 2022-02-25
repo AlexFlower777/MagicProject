@@ -7,7 +7,17 @@
 <div class="container mt-5">
 </div>
 {{#each allCards}}
-<div class="card-deck form-row text-center" >
+<div class="card">
+  <img src="{{image}}" class="card-img-top" alt="карта на продажу">
+  <div class="card-body">
+    <h5 class="card-title">Название: {{title}}</h5>
+      <p class="card-text">Состояние: {{condition}}</p>
+      <p class="card-text">Цена: {{price}} ₽</p>
+    <a href="#" class="btn btn-secondary">Delete</a>
+  <a href="#" class="btn btn-secondary">Edit</a>
+  </div>
+</div>
+{{!-- <div class="card-deck form-row text-center" >
   <div class="card" style="width: 18rem;">
   <div class="card-body" class="btn-group">
   <h5 class="card-title" name="title">{{title}}</h5>
@@ -20,7 +30,7 @@
 
 </div>
 </div>
-</div>
+</div> --}}
 {{/each}}
 </div>
 <h1>{{entry.title}}</h1>
