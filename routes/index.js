@@ -1,16 +1,55 @@
 const router = require("express").Router();
-const { Card } = require("../db/models");
+const { Card, User, City, Сondition } = require("../db/models");
+const { Op } = require("sequelize");
 
-router.get("/", (req, res) => {
-  res.render("index");
-});
+// Выведение всех карточек на главный экран
+router.get("/", async (req, res) => {
+  const allCards = await Card.findAll({
+    include: { model: User },
+    raw: true,
+  });
 
+  // Заготовка на сложный запрос из БД
+  // const allCards = await User.findAll({
+  //   include: [{ model: Card }, { model: City }],
+  // });
 
-router.get("/test", async (req, res) => {
-  const allCards = await Card.findAll({ raw: true });
+  const allCities = await City.findAll({ raw: true });
   console.log(allCards);
-  res.render("index", { allCards });
+  // console.log(allCities);
+  res.render("index", { allCards, allCities });
 });
 
+router.route("/:id").get(async (req, res) => {
+  const { id } = req.params;
+  const allCards = await Card.findAll({
+    include: { model: User, where: { city_id: id } },
+    raw: true,
+  });
+  const allCities = await City.findAll({ raw: true });
+  console.log(allCards);
+  res.render("index", { allCards, allCities });
+});
+
+// Ручка для поиска города и динамической выдачи результата
+// router.route("/").post(async (req, res) => {
+//   const search = req.body.search;
+//   console.log(search);
+//   try {
+//     const cities = await City.findAll({
+//       where: { name: { [Op.iLike]: `${search}%` } },
+//       raw: true,
+//     });
+//     return res.json(cities);
+//   } catch (err) {
+//     return res.json({ status: false });
+//   }
+// });
+
+// router.get("/test", async (req, res) => {
+//   const allCards = await Card.findAll({ raw: true });
+//   console.log(allCards);
+//   res.render("index", { allCards });
+// });
 
 module.exports = router;
