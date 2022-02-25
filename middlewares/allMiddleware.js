@@ -1,7 +1,6 @@
 const addToLocals = (req, res, next) => {
   res.locals.userId = req.session?.userId;
   res.locals.userName = req.session?.userName;
-  // console.log('addto', { locals: res.locals, session: req.session });
   next();
 };
 

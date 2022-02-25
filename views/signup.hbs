@@ -1,12 +1,14 @@
+<div class="container mx-auto" style="height:100px; width: 200px;">
 {{!-- <h1>Welcome!</h1> --}}
 <h1>{{message}}</h1>
 <h2>{{message1}}</h2>
 <h2>{{message2}}</h2>
 <h2>{{message3}}</h2>
+</div>
 
-
+<div class="container max-w-200 center wrap-float">
 <form method="post" action="/users/signup">
-  <div class="mb-3">
+  <div class="mb-3 m-10">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
@@ -24,3 +26,4 @@
   </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+</div>
