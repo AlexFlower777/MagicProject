@@ -1,9 +1,7 @@
-
 const router = require("express").Router();
 const { Card, User, City, Сondition } = require("../db/models");
-const { checkUser, checkProtection } = require('../middlewares/allMiddleware');
+const { checkUser, checkProtection } = require("../middlewares/allMiddleware");
 const { Op } = require("sequelize");
-
 
 // Выведение всех карточек на главный экран
 router.get("/", async (req, res) => {
@@ -60,28 +58,26 @@ router.get("/users/profile/:id/new", async (req, res) => {
   res.render("create", { allCities });
 });
 
-
 router.post("/newImg", async (req, res) => {
-  const { title, price, image, condition } = req.body;
-  const allCities = await City.findAll({ raw: true });
+  try {
+    const { title, price, image, condition } = req.body;
+    const allCities = await City.findAll({ raw: true });
 
-  // const condition = await Condition.create({ condition: city });
-  const userId = req.session.userId;
-  const result = await Card.create({
+    // const condition = await Condition.create({ condition: city });
+    const userId = req.session.userId;
+    const result = await Card.create({
+      title,
+      price,
+      image,
+      condition_id: +condition,
+      user_id: userId,
+    });
 
-    title,
-    price,
-    image,
-    condition_id: +condition,
-    user_id: userId,
-  });
-
-  res.render("profile", { title, price, image, condition, allCities });
-
-});
-
-router.post("/newImg", async (req, res) => {
-  console.log(req.body);
+    res.json(userId);
+    // res.redirect(`/users/profile/${userId}`);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;
