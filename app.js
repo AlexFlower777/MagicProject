@@ -14,7 +14,7 @@ const usersRouter = require("./routes/users");
 const { addToLocals } = require("./middlewares/allMiddleware");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 // hbs settings
 app.set("view engine", "hbs");
